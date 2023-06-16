@@ -36,3 +36,8 @@ Our final model experienced a huge improvement in R² score, seeing a training a
 
 ## Fairness Analysis
 
+To perform an analysis of fairness, we wish to see if our model predicts game lengths of matches from the 2022 World Championship (WCS) compared to all other leagues. From our EDA, we hypothesized that WCS games are more competitive than other games, meaning they would intuitively have longer overall game lengths in this context. Our evaluation metric is the R² score to determine the testing accuracy of predictions. 
+
+Then, we want to use a permutation test on our two chosen groups. Our null hypothesis is that our model is fair; its precision for WCS league and all other leagues are roughly the same, and any differences are due to random chance. Our alternative hypothesis is that our model is unfair; its precision for WCS league is lower than its precision for any other league.
+
+Our choice of test statistic is the difference in R² scores of our predictions, and significance level of 0.05. After performing a permutation test for 100 repetitions, we obtain a P-value of roughly 0.4, meaning we fail to reject our null hypothesis and can conclude with 95% confidence that our model is fair for matches within WCS versus any other league. 
